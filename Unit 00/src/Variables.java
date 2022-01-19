@@ -33,7 +33,7 @@ public class Variables
 
 		//other types
 		
-		boolean booleanOne = True; 
+		boolean booleanOne = true; 
 		String stringOne = hey;
 
 
