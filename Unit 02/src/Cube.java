@@ -1,12 +1,15 @@
 //(c) A+ Computer Science
 // www.apluscompsci.com
-//Name -
-//Date -
+//Name - P. David Gauvreau
+//Date - 1/19/2022
 
 public class Cube
 {
 	public static double area( int side )
 	{
-		return 0;
+		int intS = 
+		double doubleSa = 6 * 5; 
+		return cube area is : doubleSa;
+		
 	}
 }

@@ -24,12 +24,12 @@ public class Variables
 
 
 		//decimal variables
-		float floatOne = 1.01;
+		float floatOne = 124124;
 		double doubleOne = 9.2;
 
 		//other integer types
 		
-		char charOne = B; 
+		char charOne = 1; 
 
 		//other types
 		
