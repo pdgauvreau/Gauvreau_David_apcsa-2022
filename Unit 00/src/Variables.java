@@ -34,7 +34,7 @@ public class Variables
 		//other types
 		
 		boolean booleanOne = true; 
-		String stringOne = hey;
+		String stringOne = "hey";
 
 
 		//output your information here
