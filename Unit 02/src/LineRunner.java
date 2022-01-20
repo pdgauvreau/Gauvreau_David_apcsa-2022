@@ -1,8 +1,8 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  - 
+//Name - P. David Gauvreau	
+//Date - 1/20/2022
+//Class - APCSA
+//Lab  - Unit02
 
 public class LineRunner
 {
