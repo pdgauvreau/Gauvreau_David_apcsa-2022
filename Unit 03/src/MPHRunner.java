@@ -1,9 +1,9 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
+//Name - P. David Gauvrea
+//Date -1/21/22
+//Class -APCSA
 //Lab  -
 
 import java.util.Scanner; 
