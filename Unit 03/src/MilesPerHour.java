@@ -17,43 +17,30 @@ public class MilesPerHour
 
 	public MilesPerHour()
 	{
-		setNums(0,0,0);
-		mph=0.0;
 	}
 
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		double MPH = mph;
 	}
 
 	public void setNums(int dist, int hrs, int mins)
 	{
+	 dist = distance;
+	 hrs = hours;
+	 mins = minutes;
 	}
 
 	public void calcMPH()
 	{
-		int mins = 0;
-		int hrs = 0;
-		int dist = 0;
-		double MPH = 0; 
 		double doubleHours = 0.0;
 		doubleHours = ( mins / 60 ) + hrs;
 		MPH = dist / doubleHours;
-		
 	}
 
 	public void print()
 	{
-		public int getDist();
-		int hrs;
-		int mins;
-		int MPH;
-		System.out.print( hrs +" hours and "+ mins + "minutes =" + MPH + "miles per hour");
-	}
-	
-	//create a print or toString or both
-	
-	public String toString()
-	{
-		return "";
+		
+		System.out.print( hrs +" hours and "+ mins + "minutes =" + mph + "miles per hour");
 	}
 }
