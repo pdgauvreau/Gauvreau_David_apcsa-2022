@@ -27,14 +27,25 @@ public class MilesPerHour
 
 	public void setNums(int dist, int hrs, int mins)
 	{
-	}
+		
 
 	public void calcMPH()
 	{
+		double MPH = 0; 
+		int dist;
+		int hrs;
+		int mins;
+		double doubleHours = 0.0;
+		doubleHours = ( 60 / mins ) + hours;
+		MPH = dist / doubleHours;
+		return;
+		
 	}
 
 	public void print()
 	{
+		print.ln dist + miles
+	
 	}
 	
 	//create a print or toString or both
