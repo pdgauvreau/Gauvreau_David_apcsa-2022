@@ -8,7 +8,7 @@ public class PerfectRunner
 {
 	public static void main( String args[] )
 	{
-		//add test cases
-																
+		Perfect test = new Perfect(496);
+		System.out.println(test);
 	}
 }

@@ -8,9 +8,14 @@ public class Perfect
 {
    private int number;
 
-	//add constructors
-
+   public Perfect(int i) {
+		
+	}
 	//add a set method
+public void setNum(int num) {
+	
+}
+
 
 	public boolean isPerfect()
 	{
@@ -18,5 +23,9 @@ public class Perfect
 	}
 
 	//add a toString	
-	
+	public String toString()
+	{
+		if(isPerfect())
+			return
+	}
 }
