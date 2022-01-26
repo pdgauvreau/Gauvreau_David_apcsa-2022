@@ -12,7 +12,8 @@ public class OddOrEven
 {
 	public static boolean isOdd( )
 	{
-		return true;
+		if (isOdd() % 2 = 1)return true;
+	
 	}
 	public static boolean isEven( )
 	{
