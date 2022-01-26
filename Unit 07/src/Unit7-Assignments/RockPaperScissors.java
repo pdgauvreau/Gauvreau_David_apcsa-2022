@@ -12,10 +12,19 @@ public class RockPaperScissors
 
 	public RockPaperScissors()
 	{
+		playChoice=compChoice="";
 	}
 
 	public RockPaperScissors(String player)
 	{
+		int choice = (int)(Math.random()*3);
+		switch(choice)
+		{
+			case 0 = compChoice = "R"; break;
+			case 1 = compChoice = "P"; break;
+			case 2 = compChoice = "S"; break;
+		}
+		playChoice=player;
 	}
 
 	public void setPlayers(String player)
@@ -24,7 +33,10 @@ public class RockPaperScissors
 
 	public String determineWinner()
 	{
-		String winner="";
+		String winner= "The winner is" + ___ ;
+		if(compChoice.equals(playChoice))
+			return "draw";
+		
 		return winner;
 	}
 
