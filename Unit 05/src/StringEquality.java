@@ -22,6 +22,7 @@ public class StringEquality
 
 	public void setWords(String one, String two)
 	{
+		setWords one = 
 	}
 
 	public boolean checkEquality( )
