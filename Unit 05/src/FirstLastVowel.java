@@ -8,6 +8,23 @@ public class FirstLastVowel
 {
    public static String go( String a )
 	{
-		return "add code here";
+	  if (a.substring(a.length() -1).equals("a")) {
+		  return "\n yes";
+	  }
+	  if (a.substring(a.length() -1).equals("E")) {
+		  return "\n yes";
+	  }
+	  if (a.substring(a.length() -1).equals("i")) {
+		  return "\n yes";
+	  }
+	  if (a.substring(a.length() -1).equals("o")) {
+		  return "\n yes";
+	  }
+	  if (a.substring(a.length() -1).equals("u")) {
+		  return "\n yes";
+	  }
+	  
+	
+	  return "\n no";
 	}
 }
