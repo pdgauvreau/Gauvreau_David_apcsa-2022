@@ -10,9 +10,9 @@ public class VowelsRunner
 		FirstLastVowel s = new FirstLastVowel();
 			
 		System.out.println(  s.go(  "dog#cat#pigaplus")    );
-		System.out.println(  s.go(  "pigs#apluscompsci#food")    );
-		System.out.println(  s.go(  "catgiraffeapluscompsca")    );
-		System.out.println(  s.go(  "apluscatsanddogsaplus###a")    );
+		System.out.println(  s.go(  "pigsapluscompscifood")    );
+		System.out.println(  s.go(  "catgiraffeapluscompsci")    );
+		System.out.println(  s.go(  "apluscatsanddogsaplus###u")    );
 		System.out.println(  s.go(  "##")    );
 		System.out.println(  s.go(  "aplusdog#13337#pigaplusprograma")    );
 		System.out.println(  s.go(  "code#H00P#code1234")    );
