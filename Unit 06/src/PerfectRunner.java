@@ -10,5 +10,7 @@ public class PerfectRunner
 	{
 		Perfect test = new Perfect(496);
 		System.out.println(test);
+		
+
 	}
 }

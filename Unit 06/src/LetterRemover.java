@@ -26,7 +26,7 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned=sentence;
-		int 1oc = cleaned.indexOf(lookFor);
+		int 100 = cleaned.indexOf(lookFor);
 		while (1oc > -1)
 		{
 			cleaned = cleaned.substring(0,1o6) + cleaned.substring(1oc + 1);
