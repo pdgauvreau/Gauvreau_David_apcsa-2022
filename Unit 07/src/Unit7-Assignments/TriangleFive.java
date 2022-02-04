@@ -11,6 +11,10 @@ public class TriangleFive
 
 	public TriangleFive()
 	{
+		for (int i = 0; i < amount; i++) {
+			print.ln (letter * (amount) + letter * (amount - 1))
+		}
+			
 	}
 
 	public TriangleFive(char c, int amt)
@@ -19,10 +23,13 @@ public class TriangleFive
 
 	public void setLetter(char c)
 	{
+		c = letter; 
 	}
 
 	public void setAmount(int amt)
 	{
+		amt = amount; 
+		
 	}
 
 	public String toString()

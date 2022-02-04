@@ -17,7 +17,7 @@ public class RPSRunner
 		
 			String player = "";
 		
-			out.print("type in your prompt [R,P,S] :: ");
+			out.print("Choose your weapon! [R,P,S] :: ");
 			RockPaperScissors test = new RockPaperScissors(keyboard.nect());
 			System.out.println(test);
 			System.out.println(test.determineWinner()+"\n");
