@@ -28,6 +28,6 @@ public class BiggestDouble
 
 	public String toString()
 	{
-	   return "";
+	   return "biggest = " + biggestDouble;
 	}
 }
