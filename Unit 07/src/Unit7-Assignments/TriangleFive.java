@@ -19,6 +19,8 @@ public class TriangleFive
 
 	public TriangleFive(char c, int amt)
 	{
+		c = h;
+		amt = 0; 
 	}
 
 	public void setLetter(char c)
