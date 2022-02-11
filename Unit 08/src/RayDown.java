@@ -1,4 +1,4 @@
-//(c) A+ Computer Science
+	`	`	`//(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
 //Date -
@@ -9,6 +9,10 @@ public class RayDown
 	//are in decreasing order [31,12,6,2,1]
 	public static boolean go(int[] numArray)
 	{
+		int num = numArray[0];
+		for (int i = 0; i < numArray.length; i++) {
+			if (!(numArray[i] < num)) return false; 
+		}
 		return true;
 	}	
 }
