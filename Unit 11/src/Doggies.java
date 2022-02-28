@@ -10,11 +10,7 @@ public class Doggies
 
 	public Doggies(int size)
 	{
-
-		System.out.print ("How many dogs are there? :: ");
-		size = keyboard.nextInt();
-		pups = pups(size);
-		
+	size = 	
 	}
 	
 	public void set(int spot, int age, String name)
@@ -26,7 +22,7 @@ public class Doggies
 	public String getNameOfOldest()
 	{
 		for(int i = 0; i < pups.length; i++) {
-			if( )
+			if(pups.age[i] > )
 		}
 		return null;
 	}
