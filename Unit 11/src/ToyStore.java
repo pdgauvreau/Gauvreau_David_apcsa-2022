@@ -10,10 +10,14 @@ import static java.lang.System.*;
 
 public class ToyStore
 {
+	private String name;
+	private int count;
+	
 	private ArrayList<Toy> toyList;
 
 	public ToyStore()
 	{
+		toyList = new Array
 	}
 
 	public void loadToys( String toys )
