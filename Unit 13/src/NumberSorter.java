@@ -10,7 +10,17 @@ import static java.lang.System.*;
 
 public class NumberSorter
 {
+	private int number;
+	private int num;
+	
 	//instance variables and other methods not shown
+	
+	public void setNum(){
+		num = 0;
+	} 
+	public void setNumber() {
+		number = num;
+	}
 
 	private static int getNumDigits(int number)
 	{
