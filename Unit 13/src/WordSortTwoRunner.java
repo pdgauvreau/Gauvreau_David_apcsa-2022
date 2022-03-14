@@ -18,7 +18,9 @@ public class WordSortTwoRunner
 		for(int i = 0; i<size; i++)
 		{
 			String sentence = file.nextLine();
-			//instantiate a new WordSort
+			WordSortTwo run = new WordSortTwo(sentence);
+			run.sort();
+			System.out.println(run);
 		}
 	}
 }

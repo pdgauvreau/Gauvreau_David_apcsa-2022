@@ -10,27 +10,38 @@ import static java.lang.System.*;
 
 public class NumberSorter
 {
-	private int number;
-	private int num;
-	
-	//instance variables and other methods not shown
-	
-	public void setNum(){
-		num = 0;
-	} 
-	public void setNumber() {
-		number = num;
-	}
 
 	private static int getNumDigits(int number)
 	{
 		int count = 0;
-		return count;
+		while (Math.pow(10, count) < number)
+		{
+			count++;
+		}
+		return (int) count;
 	}
 
 	public static int[] getSortedDigitArray(int number)
 	{
-		int[] sorted = null;
+		int length = getNumDigits(number);
+		int[] sorted = new int[length];
+		
+		for (int i = 0; i < length; i++)
+		{
+			sorted[i] = (number / (int) Math.pow(10, i) % 10);
+		}
+		for (int i = 1; i < length; i++)
+		{
+			int temp = sorted[i];
+			int check = i;
+			
+			while (check > 0 && sorted[check - 1] > temp)
+			{
+				sorted[check] = sorted[check - 1];
+				check--;
+			}
+			sorted[check] = temp;
+		}
 		return sorted;
 	}
 }
