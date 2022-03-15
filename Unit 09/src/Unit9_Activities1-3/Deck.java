@@ -11,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private ArrayList <Card> cards = new ArrayList<Card>();
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,6 +31,31 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		//Array Code
+				/*
+				cards = new Card[ranks.length * suits.length];
+				size = ranks.length + suits.length;
+				int index = 0;
+				for (int rank = 0; rank < ranks.length; rank++)
+				{
+					for (int suit = 0; suit < suits.length; suit++)
+					{
+						cards[index] = new Card(ranks[rank], suits[suit], values[rank]);
+						index += 1;
+					}
+				}
+				*/
+				
+				//ArrayList Code
+				size = ranks.length * suits.length;
+				for (int rank = 0; rank < ranks.length; rank++)
+				{
+					for (String suit: suits)
+					{
+						cards.add(new Card(ranks[rank], suit, values[rank]));
+					}
+				}
+				
 	}
 
 
@@ -40,6 +65,8 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0) return true;
+		else return false;
 	}
 
 	/**
@@ -48,6 +75,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -56,6 +84,33 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		
+		Card copyValues;
+		int shuffleIndex;
+		
+		//Array Code
+		/*
+		for (int i = cards.length - 1; i >= 0; i--)
+		{
+			int howMany = i + 1;
+			shuffleIndex = (int)(Math.random() * howMany);
+			copyValues = cards[shuffleIndex];
+			cards[shuffleIndex] = cards[i];
+			cards[i] = copyValues;
+			size = cards.length;
+			
+		}
+		*/
+		
+		//ArrayList Code
+		for (int i = cards.size() - 1; i >= 0; i--)
+		{
+			shuffleIndex = (int)(Math.random() * (i +1));
+			copyValues = cards.get(shuffleIndex);
+			cards.add(shuffleIndex, cards.get(i));
+			cards.add(i, copyValues);
+			
+		}
 	}
 
 	/**
@@ -65,6 +120,19 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		//Array code
+				/*
+				if (size == 0) return null;
+				
+				size -= 1;
+				return cards[size];
+				*/
+				
+				//ArrayList code
+				if (size <= 0) return null;
+				size -= 1;
+				return cards.get(size);
+				
 	}
 
 	/**
