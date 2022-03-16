@@ -185,6 +185,35 @@ public class ElevensBoard {
 	 */
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		
+		if (selectedCards.size() == 3)
+		{
+			boolean hasJack = false;
+			boolean hasQueen = false;
+			boolean hasKing = false;
+			
+			for (Integer card : selectedCards)
+			{
+				Card atIndex = cardAt(card);
+				if (atIndex.rank().equals("king"))
+				{
+						hasKing = true;
+				}
+				
+				if (atIndex.rank().equals("queen")) 
+				{
+						hasQueen = true;
+				}
+				
+				if (atIndex.rank().equals("jack"))
+				{
+					hasJack = true;
+				}
+			}
+			return hasKing == hasQueen == hasJack == true;
+		}
+		
+		
 	}
 
 	/**
