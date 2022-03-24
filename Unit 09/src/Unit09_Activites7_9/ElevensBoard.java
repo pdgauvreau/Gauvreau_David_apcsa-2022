@@ -212,6 +212,15 @@ public class ElevensBoard {
 			}
 			return hasKing == hasQueen == hasJack == true;
 		}
+		else if (selectedCards.size() == 2)
+		{
+			int sum = 0;
+			for (Integer card: selectedCards)
+			{
+				Card atIndex = cardAt(card);
+				sum += atIndex.pointValue();
+			}
+		}
 		
 		
 	}
@@ -226,6 +235,40 @@ public class ElevensBoard {
 	 */
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean legal = false;
+		List<Integer> selected = new ArrayList<Integer>();
+		
+		for (int card1 = 0; card1 < BOARD_SIZE; card1++)
+		{
+			selected.add(card1);
+			for (int card2 = card1 + 1; card2 < BOARD_SIZE; card2++)
+			{
+				selected.add(card2);
+				legal = (containsPairSum11(selected));
+				if (legal) break;
+				selected.remove(1);
+				
+			}
+			if (legal) break;
+			for (int card2 = card1 + 1; card2 < BOARD_SIZE; card2++)
+			{
+				selected.add(card2);
+				for (int card3 = card2 + 1; card3 < BOARD_SIZE; card3++)
+				{
+					selected.add(card3);
+					legal = (containsJQK(selected));
+					if (legal) break;
+					selected.remove(2);
+					
+				}
+				if (legal) break;
+				selected.remove(1);
+		
+			}
+			if (legal) break;
+			selected.remove(0);
+		}
+		return legal;
 	}
 
 
