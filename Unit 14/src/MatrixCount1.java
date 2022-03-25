@@ -16,6 +16,15 @@ public class MatrixCount1
     public static int count( int val  )
     {
 		//add code
-		return 0;
+		int counter = 0;
+		
+		for (int row = 0; row < m.length; row++)
+		{
+			for (int col = 0; col < m[row].length; col++)
+			{
+				if (m[row][col] == val) counter++;
+			}
+		}
+		return counter;
     }
 }

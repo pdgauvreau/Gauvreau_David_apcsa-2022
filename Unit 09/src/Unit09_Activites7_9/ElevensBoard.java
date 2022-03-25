@@ -32,19 +32,6 @@ public class ElevensBoard extends Board {
 		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
 
 
-	/**
-	 * The cards on this board.
-	 */
-	//private Card[] cards;
-
-	/**
-	 * The deck of cards being used to play the current game.
-	 */
-	//private Deck deck;
-
-	/**
-	 * Flag used to control debugging print statements.
-	 */
 	private static final boolean I_AM_DEBUGGING = false;
 
 
@@ -52,14 +39,8 @@ public class ElevensBoard extends Board {
 	 * Creates a new <code>ElevensBoard</code> instance.
 	 */
 	public ElevensBoard() {
-		cards = new Card[BOARD_SIZE];
-		deck = new Deck(RANKS, SUITS, POINT_VALUES);
-		if (I_AM_DEBUGGING) {
-			System.out.println(deck);
-			System.out.println("----------");
-		}
-		dealMyCards();
-		System.out.print("Name : David G, Seat: sat in back, Period 1, Date: 3-24-2022 ");
+		super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
+		System.out.print("Name : David G, Seat: sat in back, Period 1, Date: 3-24-2022, Assessement_A");
 	}
 
 	
@@ -75,7 +56,7 @@ public class ElevensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		
-		if (selectedCards.size() == 3)
+		if (selectedCards.size() == 2)
 		{
 			boolean hasJack = false;
 			boolean hasQueen = false;
@@ -83,23 +64,23 @@ public class ElevensBoard extends Board {
 			
 			for (Integer card : selectedCards)
 			{
-				Card atIndex = cardAt(card);
-				if (atIndex.rank().equals("king"))
+				Card atIndex(card) = cardAt(card);
+				if (atIndex.rank().equals("king") && atIndex(card + 1).rank().equals("king"))
 				{
 						hasKing = true;
 				}
 				
-				if (atIndex.rank().equals("queen")) 
+				if (atIndex.rank().equals("queen")&& atIndex(card + 1).rank().equals("queen")) 
 				{
 						hasQueen = true;
 				}
 				
-				if (atIndex.rank().equals("jack"))
+				if (atIndex.rank().equals("jack")&& atIndex(card + 1).rank().equals("jack"))
 				{
 					hasJack = true;
 				}
 			}
-			return hasKing == hasQueen == hasJack == true;
+			return hasKing || hasQueen || hasJack == true;
 		}
 		else if (selectedCards.size() == 3)
 		{
@@ -110,9 +91,12 @@ public class ElevensBoard extends Board {
 				sum += atIndex.pointValue();
 			}
 			return sum == 11;
-		}
+		}}
 		
 		return false;
+	}
+		
+		
 	}
 
 	/**
@@ -175,6 +159,7 @@ public class ElevensBoard extends Board {
 		return (selectedCards.size() == 3 && cardAt(selectedCards.get(0)).pointValue() + cardAt(selectedCards.get(BOARD_SIZE)) + cardAt(selectedCards.get(2)).pointValue() == 11);
 	}
 
+	
 	/**
 	 * Check for a JQK in the selected cards.
 	 * @param selectedCards selects a subset of this board.  It is list

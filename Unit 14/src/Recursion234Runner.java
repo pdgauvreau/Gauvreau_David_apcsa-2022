@@ -9,6 +9,17 @@ public class Recursion234Runner
 	public static void main(String args[])
 	{
 		System.out.println(RecursionFunOne.countOddDigits(4532));
+		System.out.println(RecursionFunOne.countOddDigits(11145322));
+		System.out.println(RecursionFunOne.countOddDigits(224532714));
+		System.out.println(RecursionFunOne.countOddDigits(2468));
+		System.out.println(RecursionFunOne.countOddDigits(13579));
+		
+		System.out.println(RecursionFunThree.luckyThrees(3));
+		system.out.println(RecursionFunThree.luckyThrees(31332));
+		system.out.println(RecursionFunThree.luckyThrees(134523));
+		system.out.println(RecursionFunThree.luckyThrees(3113));
+		system.out.println(RecursionFunThree.luckyThrees(13331));
+		system.out.println(RecursionFunThree.luckyThrees(777337777));
 
 		//add more test cases
 	}

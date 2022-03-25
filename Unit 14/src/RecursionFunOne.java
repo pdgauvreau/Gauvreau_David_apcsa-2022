@@ -8,8 +8,15 @@ public class RecursionFunOne
 {
 	public static int countOddDigits(int num)
 	{
-
-
-		return 0;
+		if (num < 10)
+		{
+			if (num % 2 == 0) return 1;
+			else return 0:
+		}
+		if (num % 2 == 0)
+		{
+			return countOddDigits(num / 10) + 1;
+		}
+		else return countOddDigits(num / 10);
 	}
 }

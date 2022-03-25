@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
@@ -41,13 +43,26 @@ public class Grid
 	//returns a count of how many times val occurs in the matrix
 	private int countVals( String val )
 	{
-		return 0;
+		 int counter = 0;
+		 
+		 for (int row = 0; row < grid.length; row++) {
+			 for (int cold = 0; col < grid[row].length; col++)
+			 {
+				 if (grid[row][col].equals(val)) counter++;
+			 }
+		 }
+		 return counter;
 	}
 
 	//display the grid
 	public String toString()
 	{
 		String output="";
+		
+		for (int row = 0; row < grid.length; row++)
+		{
+			output+= "\n" + Arrays.deepToString(grid[row]);
+		}
 		return output;
 	}
 }
