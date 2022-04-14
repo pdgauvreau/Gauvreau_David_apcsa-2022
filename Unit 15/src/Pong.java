@@ -20,17 +20,23 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-
+	private int p1Pt;
+	private int p2Pt;
+	private Block erase;
+	private Wall wall;
 
 	public Pong()
 	{
-		//set up all variables related to the game
-
-
-
-
+		ball = new SpeedUpBall(300, 300, 10, 10, Color.BLUE, 3, 1);
+		leftPaddle = new Paddle(50, 400, 10, 60, Color.ORANGE, 3);
+		rightPaddle = new Paddle(750, 510, 10, 60, Color.GREEN, 3);
+		
 		keys = new boolean[4];
 
+		p1Pt = 0;
+		p2Pt = 0;
+		erase = new Block(400, 530, 200, 60, Color.BLACK);
+		wall = new Wall();
     
     	setBackground(Color.WHITE);
 		setVisible(true);
@@ -42,6 +48,13 @@ public class Pong extends Canvas implements KeyListener, Runnable
    public void update(Graphics window){
 	   paint(window);
    }
+   
+   public void printScore(Graphics window) {
+	   erase.draw(window, Color.WHITE);
+	   window.setColor(Color.BLACK);
+	   window.drawString("Player 1: " + p1Pt, 400, 550);
+	   window.drawString("Player 2: " + p2Pt, 400, 570);
+   }
 
    public void paint(Graphics window)
    {
@@ -50,58 +63,110 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		//take a snap shop of the current screen and same it as an image
 		//that is the exact same width and height as the current screen
-		if(back==null)
+		if(back == null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 
 		//create a graphics reference to the back ground image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
-
+		printScore(graphToBack);
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 
 
 		//see if ball hits left wall or right wall
-		if(!(ball.getX()>=10 && ball.getX()<=780))
+		if(!(ball.getX() >= wall.getX() && ball.getX() <= (wall.getWidth() - ball.getWidth())))
 		{
+			if (ball.getX() <= wall.getX())
+			{
+				p2Pt += 1;
+			}
+			else if (ball.getX() >= (wall.getWidth() - ball.getWidth()))
+			{
+				p1Pt += 1;
+			}
+			
 			ball.setXSpeed(0);
 			ball.setYSpeed(0);
+			ball.draw(graphToBack, Color.WHITE);
+			ball = new SpeedUpBall(300 + (int) (Math.random() * 200), 200 + (int) (Math.random() * 200), 10, 10, Color.BLUE, (int) (Math.pow(-1, (int) (Math.random() * 2))), (int) (Math.random() * 2) * (int) (Math.pow(-1,  (int) (Math.random() * 2))));
 		}
 
-		
 		//see if the ball hits the top or bottom wall 
-
-
-
+		if (!(ball.getY() >= wall.getY() && ball.getY() <= wall.getHeight() - ball.getHeight() - ball.getYSpeed() - 20))
+		{
+			ball.setYSpeed(ball.getYSpeed() * -1);
+		}
 
 		//see if the ball hits the left paddle
+		if(ball.didCollideLeft(leftPaddle))
+		{
+			if (ball.getX() <= (leftPaddle.getX() + leftPaddle.getWidth() - Math.abs(ball.getXSpeed())))
+			{
+				ball.setYSpeed(Math.abs(ball.getYSpeed()));
+			}
+			else
+			{
+				ball.setXSpeed(Math.abs(ball.getXSpeed()));
+
+			}
+		}
 		
+		if(ball.didCollideTop(leftPaddle))
+		{
+			ball.setYSpeed(-1 * Math.abs(ball.getYSpeed()));
+		}
 		
+		if(ball.didCollideBottom(leftPaddle))
+		{
+			ball.setYSpeed(Math.abs(ball.getYSpeed()));
+		}
 		
 		//see if the ball hits the right paddle
+		if(ball.didCollideRight(rightPaddle))
+		{
+			if (ball.getX() >= (rightPaddle.getX() + rightPaddle.getWidth() + Math.abs(ball.getXSpeed())))
+			{
+				ball.setYSpeed(-1 * Math.abs(ball.getYSpeed()));
+			}
+			else
+			{
+				ball.setXSpeed(-1 * Math.abs(ball.getXSpeed()));
+			}
+		}
 		
+		if(ball.didCollideTop(rightPaddle))
+		{
+			ball.setYSpeed(-1 * Math.abs(ball.getYSpeed()) + rightPaddle.getSpeed());
+		}
 		
-		
-
+		if(ball.didCollideBottom(rightPaddle))
+		{
+			ball.setYSpeed(Math.abs(ball.getYSpeed())+rightPaddle.getSpeed());
+		}
 
 		//see if the paddles need to be moved
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		if (keys[0] == true && leftPaddle.getY() > leftPaddle.getSpeed())
+		{
+			leftPaddle.moveUpAndDraw(graphToBack);
+		}
+		
+		if (keys[1] == true && leftPaddle.getY() < ( 600 - leftPaddle.getHeight() - 20))
+		{
+			leftPaddle.moveDownAndDraw(graphToBack);
+		}
+		
+		if (keys[2] == true && rightPaddle.getY() > rightPaddle.getSpeed())
+		{
+			rightPaddle.moveUpAndDraw(graphToBack);
+		}
+		
+		if (keys[3] == true && rightPaddle.getY() < (600 - rightPaddle.getHeight() - 20))
+		{
+			rightPaddle.moveDownAndDraw(graphToBack);
+		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
