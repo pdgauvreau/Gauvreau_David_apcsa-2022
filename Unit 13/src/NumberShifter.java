@@ -30,7 +30,7 @@ public class NumberShifter
 			change++;
 		}
 		
-		for (int index = 0; index < array.length; index++)
+		for (int index = change; index < array.length; index++)
 		{
 			if (array[index] == 7)
 			{
@@ -40,4 +40,5 @@ public class NumberShifter
 				change++;
 			}
 		}
+	}
 }
