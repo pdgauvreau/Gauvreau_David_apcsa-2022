@@ -215,9 +215,6 @@ public class PictureTester
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+    
   }
 }
