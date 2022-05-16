@@ -74,27 +74,11 @@ public class PictureTester
 	    caterpillar.explore();
 	  }
 	  
-	  public static void testMirrorRightToLeft()
-	  {
-		  Picture caterpillar = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/caterpillar.jpg");
-		  caterpillar.explore();
-		  caterpillar.mirrorVerticalRightToLeft();
-		  caterpillar.explore();
-	  }
-	  
 	  public static void testMirrorHorizontal()
 	  {
 		  Picture caterpillar = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/caterpillar.jpg");
 		  caterpillar.explore();
 		  caterpillar.mirrorHorizontal();
-		  caterpillar.explore();
-	  }
-	  
-	  public static void testMirrorHorizontalBotToTop()
-	  {
-		  Picture caterpillar = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/caterpillar.jpg");
-		  caterpillar.explore();
-		  caterpillar.mirrorHorizontalBotToTop();
 		  caterpillar.explore();
 	  }
 	  
@@ -140,13 +124,6 @@ public class PictureTester
 	    canvas.explore();
 	  }
 	  
-	  public static void testMyCollage()
-	  {
-	    Picture canvas = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/640x480.jpg");
-	    canvas.createMyCollage();
-	    canvas.explore();
-	  }
-	  
 	  public static void testCopy()
 	  {
 		  Picture canvas = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/640x480.jpg");
@@ -180,10 +157,10 @@ public class PictureTester
 		  beach.decode().explore();
 	  }
 	  
-	  public static void testEncoderNDecoder()
+	  public static void testEncodeAndDecode()
 	  {
 		  Picture beach = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/beach.jpg");
-		  Picture msg = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/apple_icon.jpg");
+		  Picture msg = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/flower1.jpg");
 		  beach.explore();
 		  beach.redSumEncoder(msg);
 		  beach.explore();
@@ -212,7 +189,7 @@ public class PictureTester
     //testCollage();
     //testCopy();
     //testEdgeDetection();
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     
