@@ -9,6 +9,15 @@
 public class PictureTester
 {
   /** Method to test zeroBlue */
+	public static void testBackgroundSwap()
+	  {
+	    	Picture mark = new Picture("blue-mark.jpg");
+	    	Picture moon = new Picture("moon-surface.jpg");
+	    	mark.backgroundSwap(moon);  //replace blue pixels in mark with pixels in moon
+						    //replace pixels containing the logo on the t-shirt
+	   	mark.explore();
+	  }
+
 	 public static void testZeroBlue()
 	  {
 	    Picture beach = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/beach.jpg");

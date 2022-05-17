@@ -661,6 +661,25 @@ public class Picture extends SimplePicture
 	  }
 	  return messPic;
   }
+  public void backgroundSwap( Picture newBack )
+  {
+      Pixel fromPixel = null;
+      Pixel toPixel = null;
+      Pixel[][] toPixels = this.getPixels2D();
+      Pixel[][] fromPixels = newBack.getPixels2D();
+      for ( int row = 0; row < this.getHeight(); row++ )
+      {
+          for ( int col = 0; col < this.getWidth(); col++ )
+          {
+              toPixel = toPixels[row][col];
+              if ( toPixel.getBlue() > toPixel.getRed() )
+              {
+                  fromPixel = fromPixels[row][col];
+                  toPixel.setColor( fromPixel.getColor() );
+              }
+          }
+      }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
