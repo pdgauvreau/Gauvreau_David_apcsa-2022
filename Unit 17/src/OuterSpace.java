@@ -20,11 +20,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienOne;
 	private Alien alienTwo;
 
-	/* uncomment once you are ready for this part
-	 *
-   private AlienHorde horde;
+	
+	private AlienHorde horde;
 	private Bullets shots;
-	*/
+	private boolean gameOver;
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -34,6 +33,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setBackground(Color.black);
 
 		keys = new boolean[5];
+		ship = new Ship(375, 520, 50, 50, 10);
+		horde = new AlienHorde(25);
+		shots = new Bullets();
 
 		//instantiate other instance variables
 		//Ship, Alien
@@ -67,15 +69,66 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
-
-		if(keys[0] == true)
+		
+		ship.draw(graphToBack);;
+		horde.drawEmAll(graphToBack);
+		shots.drawEmAll(graphToBack);
+		horde.moveEmAll();
+		shots.moveEmAll();
+		horde.removeDeadOnes(shots.getList());
+		shots.cleanEmUp();
+		
+	
+		//add code to move Ship, Alien, etc.
+		if (gameOver) 
+		{
+			graphToBack.setColor(Color.WHITE);
+			if (horde.getList().size() == 0)
+			{
+				graphToBack.drawString("You Won!", 350, 250);
+			}
+			else graphToBack.drawString("You lost!", 350, 250);
+		}
+		
+		if(keys[0] == true && ship.getX() > ship.getSpeed())
 		{
 			ship.move("LEFT");
 		}
+		if(keys[1] == true && ship.getX() < (800 - ship.getSpeed() - ship.getWidth())) 
+		{
+			ship.move("RIGHT");
+		}
+		if(keys[2] == true && ship.getY() > ship.getSpeed())
+		{
+			ship.move("UP");
+		}
+		if(keys[3] == true && ship.getY() < (600 - ship.getSpeed() - ship.getHeight() - 20))
+		{
+			ship.move("DOWN");
+		}
+		if(keys[4] == true && !gameOver)
+		{
+			shots.add(new Ammo((ship.getX() + ship.getWidth() / 2), ship.getY() -5, 5, 5, 5));
+			keys[4] = false;
+		}
 
-		//add code to move Ship, Alien, etc.
-
-
+	for (Alien being : horde.getList()) 
+	{
+		if ((ship.getX() <= (being.getX() + being.getWidth() + Math.abs(ship.getSpeed())) && ship.getX() > (being.getX() - ship.getWidth() - Math.abs(ship.getSpeed())) && ship.getX() >= (being.getX())&& ship.getY() < (being.getY() + being.getHeight()) && (ship.getY()+ ship.getHeight()) > being.getY())  || (ship.getX() < (being.getX() + being.getWidth() + Math.abs(ship.getSpeed())) && ship.getX() >= (being.getX() - ship.getWidth() - Math.abs(ship.getSpeed())) && ship.getX() <= being.getX() + being.getWidth() && ship.getY() < (being.getY() + being.getHeight()) && (ship.getY() + ship.getHeight()) > being.getY()) || being.getY() + being.getHeight() >= 500)
+		{
+			horde.stopHorde();
+			ship.setSpeed(0);
+			shots.clear();
+			gameOver = true;
+		}
+	}
+	
+	if (horde.getList().size() == 0)
+	{
+		gameOver = true;
+		ship.setSpeed(0);
+	}
+	
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 
 
