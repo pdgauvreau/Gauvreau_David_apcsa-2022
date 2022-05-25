@@ -585,7 +585,7 @@ public class Picture extends SimplePicture
 	  return messagePicture;
   	}
   
-  public void redSumEncoder(Picture messPict)
+  public void redValueEncoder(Picture messPict)
   {
 	  Pixel[][] messPixels = messPict.getPixels2D();
 	  Pixel[][] picPixels = this.getPixels2D();
@@ -633,7 +633,7 @@ public class Picture extends SimplePicture
 	  }
   }
   
-  public Picture RedSumDecoder()
+  public Picture RedValueDecoder()
   {
 	  Pixel[][]pixels = this.getPixels2D();
 	  

@@ -168,12 +168,12 @@ public class PictureTester
 	  
 	  public static void testEncodeAndDecode()
 	  {
-		  Picture beach = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/beach.jpg");
-		  Picture msg = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/flower1.jpg");
-		  beach.explore();
-		  beach.redSumEncoder(msg);
-		  beach.explore();
-		  beach.RedSumDecoder().explore();
+		  Picture apple = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/beach.jpg");
+		  Picture msg = new Picture("/Users/PdGau/OneDrive/Documents/GitHub/Gauvreau_David_apcsa-2022/Unit 16 pic lab/src/images/apple_icon.jpg");
+		  apple.explore();
+		  apple.redValueEncoder(msg);
+		  apple.explore();
+		  apple.RedValueDecoder().explore();
 	  }
   
   /** Main method for testing.  Every class can have a main
@@ -199,8 +199,8 @@ public class PictureTester
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
-    //testChromakey();
-    //testEncodeAndDecode();
+    //testbackgroundSwap();
+    testEncodeAndDecode();
     
   }
 }
